@@ -3,16 +3,18 @@ import java.io.OutputStreamWriter;
 import java.io.IOException;
 import java.lang.NumberFormatException;
 
-public class Lab1-PPC {
-    public static int getFactorial(int f) {
+public class Runner {
+   static int getFactorial(int f) {
         int result = 1;
-        for (int i = 1; i <= f; i++) {
-           result = result * i;
-        }
+		if(f > 0){
+			for (int i = 1; i <= f; i++){
+				result = result * i;
+			}
+		}
         return result;
     }
-    public static int function(double var_x, double var_n){
-        int y; 
+  static double function(double var_x, int var_n){
+        double y; 
         y = Math.pow(-1, var_n)*Math.pow(var_x, (2*var_n+1));
         y = y/getFactorial(2*var_n+1);
         return y;
@@ -26,11 +28,12 @@ public class Lab1-PPC {
         double previous = current;
         double e = current - previous;
         for(int n = 1; e > h; n++){
-           right+=current;
-           previous = current;
-           current = function(x,n);
+			right+=current;
+			previous = current;
+			current = function(x,n);
+			e = current - previous;
         }
-        if(left==right) System.out.println(left + " = " + right);
+		if(left==right) System.out.println(left + " = " + right);
         else System.out.println(left + " Not equal " + right);
     }
 }
