@@ -33,9 +33,9 @@ public class Runner {
 			current = function(x,n);
 			e = current - previous;
         }
-	 left = left - left % (1 / h);
-	 right = right - right % (1 / h);
-		if(left==right) System.out.println(left + " = " + right);
+        left = left - left % (h);
+        right = right - right % (h);
+	if(left==right) System.out.println(left + " = " + right);
         else System.out.println(left + " Not equal " + right);
     }
 }
