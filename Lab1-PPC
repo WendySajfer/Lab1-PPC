@@ -26,13 +26,15 @@ public class Runner {
         double current = function(x,0);
         double right = 0;
         double previous = current;
-        double e = current - previous;
-        for(int n = 1; e > h; n++){
+        double e = h;
+        for(int n = 1; Math.abs(e) >= h; n++){
 			right+=current;
 			previous = current;
 			current = function(x,n);
 			e = current - previous;
         }
+	 left = left - left % (1 / h);
+	 right = right - right % (1 / h);
 		if(left==right) System.out.println(left + " = " + right);
         else System.out.println(left + " Not equal " + right);
     }
