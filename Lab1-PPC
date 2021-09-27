@@ -22,12 +22,13 @@ public class Runner {
         double right = 0;
         double previous = current;
         double e = h;
-        for(int n = 1; Math.abs(e) >= h; n++){
+        for(int n = 1; e >= h; n++){
 			right+=current;
 			previous = current;
 			current = function(x,n);
-			e = current - previous;
+			e = Math.abs(current) - Math.abs(previous);
         }
+		System.out.println(right);
         left = left - left % (h);
         right = right - right % (h);
 	if(left==right) System.out.println(left + " = " + right);
