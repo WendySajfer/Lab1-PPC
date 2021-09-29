@@ -18,15 +18,14 @@ public class Runner {
         double x = Double.parseDouble(args[0]);
         double h = Double.parseDouble(args[1]);
         double left = Math.sin(x);
-        double current = function(x,0);
-        double right = 0;
-        double previous = current;
-        double e = h;
-        for(int n = 1; e >= h; n++){
-			right+=current;
-			previous = current;
-			current = function(x,n);
-			e = Math.abs(current) - Math.abs(previous);
+        double a = function(x,0);
+        double e = a;
+        double right = a;
+        for(int n = 1; e > h; n++){
+                        right+=a;
+                        System.out.println(a);
+			a = function(x,n);
+			e = Math.abs(a);
         }
 		System.out.println(right);
         left = left - left % (h);
